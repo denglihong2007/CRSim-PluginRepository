@@ -39,7 +39,6 @@ def main():
     with open(output_json, "w", encoding="utf-8") as jf:
         json.dump(manifests, jf, ensure_ascii=False, indent=2)
 
-    # 打包output.zip
     with zipfile.ZipFile(output_zip, "w", zipfile.ZIP_DEFLATED) as zf:
         # plugins目录
         for root, _, files in os.walk(plugins_dir):
@@ -61,4 +60,4 @@ def main():
     os.remove(output_json)
 
 if __name__ == "__main__":
-    main()
+    main() 
