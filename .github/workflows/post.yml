@@ -21,6 +21,8 @@ jobs:
       env:
         DEPLOY_URL: ${{ secrets.DEPLOY_URL }}
         DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        MIRROR_DEPLOY_URL: ${{ secrets.MIRROR_DEPLOY_URL }}
+        MIRROR_DEPLOY_TOKEN: ${{ secrets.MIRROR_DEPLOY_TOKEN }}
       run: |
         python tools/MakePackage.py
         python tools/PostPackage.py
