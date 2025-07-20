@@ -17,7 +17,7 @@ with open(zip_path, 'rb') as f:
     )
 
 with open(zip_path, 'rb') as f:
-    r = requests.post(
+    mirror_r = requests.post(
         mirror_url,
         files={'file': f},
         headers={'Authorization': f'Bearer {mirror_token}'}
@@ -26,5 +26,5 @@ with open(zip_path, 'rb') as f:
 print(f"Server responded with status: {r.status_code}")
 print(r.text)
 
-print(f"Mirror server responded with status: {r.status_code}")
-print(r.text)
+print(f"Mirror server responded with status: {mirror_r.status_code}")
+print(mirror_r.text)
