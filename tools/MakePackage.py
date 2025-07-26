@@ -2,7 +2,6 @@ import os
 import zipfile
 import shutil
 import json
-import yaml
 
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,9 +24,8 @@ def main():
         if fname.endswith(".crsp"):
             crsp_path = os.path.join(plugins_dir, fname)
             with zipfile.ZipFile(crsp_path, "r") as zf:
-                # 读取manifest.yml
-                with zf.open("manifest.yml") as mf:
-                    manifest = yaml.safe_load(mf)
+                with zf.open("manifest.json") as mf:
+                    manifest = json.load(mf)
                     manifests.append(manifest)
                 # 提取icon.png
                 icon_name = os.path.splitext(fname)[0] + ".png"
